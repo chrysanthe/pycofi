@@ -20,11 +20,11 @@ def get_maltlog_data():
         by_beer[point['beer_id']].append(point)
 
     beers_ids = by_beer.keys()
-    users = [(user, {"R_indices":list(set([tasting['beer_id'] for tasting in by_user[user]])),"index":index } ) for index, user in enumerate(by_user.keys())]
+    users = [(user, {"id":by_user[user][0]["user_id"], "R_indices":list(set([tasting['beer_id'] for tasting in by_user[user]])),"index":index } ) for index, user in enumerate(by_user.keys())]
 
     beers_ids= filter( lambda x: len(by_beer[x]) > 1, beers_ids) 
     
-    beers = [{"id":by_beer[x][0]["beer_id"], "name":by_beer[x][0]["beer_name"]} for x in beers_ids] 
+    beers = [{"id":by_beer[x][0]["beer_id"], "name":by_beer[x][0]["beer_name"], "retired":by_beer[x][0]["beer_retired"]} for x in beers_ids]
 
     return (beers, users, by_beer, by_user)
 

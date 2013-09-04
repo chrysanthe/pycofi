@@ -29,16 +29,24 @@ for user in users:
 
     print "---", user, "'s top recommendations---"
 
-    for beer in top_recommendations[0:10]:
-        print beer[0]['name'], beer[1]
+    printed = 0;
+    index = 0;
+    while ((printed < 10) and (index + 1 < len(top_recommendations))):
+        beer = top_recommendations[index]
+        if (beer[0]['retired'] == '0'):
+            print beer[0]['name'], beer[1]
+            printed += 1
+        index += 1
 
     print "---", user, "'s homework---"
 
     for beer in homework[:5]:
-        print beer[0]['name'], beer[1]
+        if (beer[0]['retired'] == '0'):
+            print beer[0]['name'], beer[1]
 
     for beer in homework[-5:]:
-        print beer[0]['name'], beer[1]
+        if (beer[0]['retired'] == '0'):
+            print beer[0]['name'], beer[1]
 
     print "----------------"
     print ""

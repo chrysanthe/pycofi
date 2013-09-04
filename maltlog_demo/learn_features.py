@@ -5,7 +5,7 @@ from serialization import save_results
 from maltlog_data import get_maltlog_data,create_matrices
 from pycofi.learning import learn_features
 num_features = 4
-lambda_val = 0.06
+lambda_val = 0.03
 
 print "contacting service"
 (items, users, by_item, by_user) = get_maltlog_data()
