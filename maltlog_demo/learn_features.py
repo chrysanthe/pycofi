@@ -12,7 +12,7 @@ print "contacting service"
 print "building matrices"
 (Y, R, item_mean) = create_matrices(items, users, by_item, by_user)
 print "optimizing"
-(X, Theta, J_train, J_cross) = learn_features(Y, R, num_features, lambda_val, maxiter=1000)
+(X, Theta, J_train, J_cross) = learn_features(Y, R, num_features, lambda_val, maxiter=3000)
 users = dict(users)
 
 print J_train

@@ -4,7 +4,7 @@ import requests
 
 def get_maltlog_data():
 
-    r = requests.get('''https://maltlog.com/api/logs.php''')
+    r = requests.get('''https://maltlog.com/api/logs_for_features.php''')
 
     data = r.json()
 
